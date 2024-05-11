@@ -13,4 +13,4 @@ async function getDef(word){
   }
 }
 
-getDef(document.getElementById("def"));
+getDef(document.getElementById("def").textContent);
