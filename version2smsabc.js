@@ -28,7 +28,7 @@ function code() {
                 document.getElementById("pokeImage").src = json.sprites.front_default;
                 var name = json.name.substring(0, 1).toUpperCase() + json.name.substring(1, json.name.length);
                 document.getElementById("name").innerHTML = name;
-                document.getElementById("Rolls").innerHTML = "Score: "+totalrolls.toLocaleString()
+                document.getElementById("Rolls").innerHTML = "Rolls: "+totalrolls.toLocaleString()
                 var sound = new Audio(json.cries.latest);
                 sound.play();
             } catch (e) {
