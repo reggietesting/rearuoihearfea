@@ -32,23 +32,22 @@ function code() {
                 const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + num)
                 const json = await response.json()
                 console.log(json);
-                localStorage.setItem("totalRolls",(localStorage.getItem("totalRolls") || 0) + 1)
-                totalrolls += 1;
+                localStorage.setItem("totalRolls",(localStorage.getItem("totalRolls") && Number(localStorage.getItem("totalRolls")) || 0) + 1)
                 setTimeout(function(){
                     cd = false
                 },3000)
                 if (shinyChance == 1) {
-                    localStorage.setItem("totalShinys",(localStorage.getItem("totalShinys") || 0) + 1)
+                     localStorage.setItem("totalShinys",(localStorage.getItem("totalShinys") && Number(localStorage.getItem("totalShinys")) || 0) + 1)
                     document.getElementById("pokeImage").src = json.sprites.front_shiny;
                     document.getElementById("name").style.color = "orange";
-                    document.getElementById("Shinys").innerHTML = "Shinys: "+localStorage.getItem("totalShinys").toLocaleString()
+                    document.getElementById("Shinys").innerHTML = "Shinys: "+Number(localStorage.getItem("totalShinys")).toLocaleString()
                 } else {
                     document.getElementById("name").style.color = "black";
                     document.getElementById("pokeImage").src = json.sprites.front_default;
                 }
                 var name = json.name.substring(0, 1).toUpperCase() + json.name.substring(1, json.name.length);
                 document.getElementById("name").innerHTML = name;
-                document.getElementById("Rolls").innerHTML = "Rolls: "+localStorage.getItem("totalRolls").toLocaleString()
+                document.getElementById("Rolls").innerHTML = "Rolls: "+Number(localStorage.getItem("totalRolls")).toLocaleString()
                 var sound = new Audio(json.cries.latest);
                 sound.play();
                 var jsonList = JSON.parse("{}");
