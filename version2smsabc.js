@@ -14,8 +14,12 @@ function randomNum(num1, num2) {
 
 function code() {
     console.log("JS LOADED!")
-    document.getElementById("Rolls").innerHTML = "Rolls: "+(localStorage.getItem("totalRolls") && Number(localStorage.getItem("totalRolls").toLocaleString() || 0));
-    document.getElementById("Shinys").innerHTML = "Shinys: "+(localStorage.getItem("totalShinys") && Number(localStorage.getItem("totalShinys").toLocaleString() || 0));
+    if (localStorage.getItem("totalRolls")) {
+        document.getElementById("Rolls").innerHTML = "Rolls: "+Number(localStorage.getItem("totalRolls")).toLocaleString()
+    }
+    if (localStorage.getItem("totalShinys")) {
+       document.getElementById("Shinys").innerHTML = "Shinys: "+Number(localStorage.getItem("totalShinys")).toLocaleString()
+    }
     var footer = document.getElementById("codeprojects_pagefooter")
     if (footer) {
         footer.parentNode.removeChild(footer);
