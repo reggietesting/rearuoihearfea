@@ -2,7 +2,7 @@ console.log("loading js.")
 
 var cd = false;
 var totalrolls = localStorage.getItem("totalRolls") || 0;
-var totalshinys = localStorage.getItem("totalShinys") || 0
+var totalshinys = localStorage.getItem("totalShinys") || 0;
 
 function randomNum(num1, num2) {
     var numList = [num1];
@@ -14,6 +14,8 @@ function randomNum(num1, num2) {
 
 function code() {
     console.log("JS LOADED!")
+    document.getElementById("Rolls").innerHTML = "Rolls: "+(localStorage.getItem("totalRolls") && Number(localStorage.getItem("totalRolls").toLocaleString() || 0));
+    document.getElementById("Shinys").innerHTML = "Shinys: "+(localStorage.getItem("totalShinys") && Number(localStorage.getItem("totalShinys").toLocaleString() || 0));
     var footer = document.getElementById("codeprojects_pagefooter")
     if (footer) {
         footer.parentNode.removeChild(footer);
