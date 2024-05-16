@@ -25,30 +25,6 @@ var hyphenList = [
     "Iron-Thorns",
     "Iron-Valiant",
     "Walking-Wake",
-    "Iron-Leaves"
-]
-
-var hyphenList = [
-    "Ho-Oh",
-    "Porygon-Z",
-    "Jangmo-o",
-    "Hakamo-o",
-    "Kommo-o",
-    "Tapu-Koko",
-    "Tapu-Lele",
-    "Tapu-Bulu",
-    "Tapu-Fini",
-    "Type-Null", // shld be Type: Null
-    "Urshifu-Single-Strike", // Urshifu Single-Strike Style
-    "Urshifu-Rapid-Strike", // Urshifu Rapid-Strike Style
-    "Iron-Treads",
-    "Iron-Bundle",
-    "Iron-Hands",
-    "Iron-Jugulis",
-    "Iron-Moth",
-    "Iron-Thorns",
-    "Iron-Valiant",
-    "Walking-Wake",
     "Iron-Leaves",
     "Wo-Chien",
     "Chien-Pao",
@@ -97,7 +73,7 @@ var oghyphenList = [
     "Sandy Shocks",
     "Roaring Moon"
   ]
-  
+
 var cd = false;
 var totalrolls = localStorage.getItem("totalRolls") || 0;
 var totalshinys = localStorage.getItem("totalShinys") || 0;
@@ -166,6 +142,7 @@ function code() {
                     for (var i = 0; i < hyphenList.length; i++) {
                         if (hyphenList[i].toLowerCase() == name.toLowerCase()) {
                             name = oghyphenList[i]
+                            console.log(hyphenList[i])
                             bypassHypenAfterDelete = true;
                             break
                         }
@@ -186,7 +163,6 @@ function code() {
                 jsonList.name = name;
                 jsonList.isShiny = shinyChance == 1;
                 localStorage.setItem("currentRoll",JSON.stringify(jsonList))
-                console.log(localStorage(getItem("currentRoll")))
             } catch (e) {
                 console.log(e);
             }
