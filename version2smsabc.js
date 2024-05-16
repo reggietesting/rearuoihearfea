@@ -63,6 +63,7 @@ function code() {
                     document.getElementById("pokeImage").src = json.sprites.front_default;
                 }
                 var name = json.name.substring(0, 1).toUpperCase() + json.name.substring(1, json.name.length);
+                name = name.replace(name,"-"," ")
                 document.getElementById("name").innerHTML = name;
                 document.getElementById("Rolls").innerHTML = "Rolls: "+Number(localStorage.getItem("totalRolls")).toLocaleString()
                 var sound = new Audio(json.cries.latest);
