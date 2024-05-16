@@ -28,6 +28,41 @@ var hyphenList = [
     "Iron-Leaves"
 ]
 
+var hyphenList = [
+    "Ho-Oh",
+    "Porygon-Z",
+    "Jangmo-o",
+    "Hakamo-o",
+    "Kommo-o",
+    "Tapu-Koko",
+    "Tapu-Lele",
+    "Tapu-Bulu",
+    "Tapu-Fini",
+    "Type-Null", // shld be Type: Null
+    "Urshifu-Single-Strike", // Urshifu Single-Strike Style
+    "Urshifu-Rapid-Strike", // Urshifu Rapid-Strike Style
+    "Iron-Treads",
+    "Iron-Bundle",
+    "Iron-Hands",
+    "Iron-Jugulis",
+    "Iron-Moth",
+    "Iron-Thorns",
+    "Iron-Valiant",
+    "Walking-Wake",
+    "Iron-Leaves",
+    "Wo-Chien",
+    "Chien-Pao",
+    "Ting-Lu",
+    "Chi-Yu",
+    "Great-Tusk",
+    "Scream-Tail",
+    "Brute-Bonnet",
+    "Flutter-Mane",
+    "Slither-Wing",
+    "Sandy-Shocks",
+    "Roaring-Moon"
+]
+
 var oghyphenList = [
     "Ho-Oh",
     "Porygon-Z",
@@ -38,9 +73,9 @@ var oghyphenList = [
     "Tapu Lele",
     "Tapu Bulu",
     "Tapu Fini",
-    "Type: Null", // shld be Type: Null
-    "Urshifu Single-Strike Style", // Urshifu Single-Strike Style
-    "Urshifu Rapid-Strike Style", // Urshifu Rapid-Strike Style
+    "Type: Null",
+    "Urshifu Single-Strike Style",
+    "Urshifu Rapid-Strike Style",
     "Iron Treads",
     "Iron Bundle",
     "Iron Hands",
@@ -49,8 +84,20 @@ var oghyphenList = [
     "Iron Thorns",
     "Iron Valiant",
     "Walking Wake",
-    "Iron Leaves"
-]
+    "Iron Leaves",
+    "Wo-Chien",
+    "Chien-Pao",
+    "Ting-Lu",
+    "Chi-Yu",
+    "Great Tusk",
+    "Scream Tail",
+    "Brute Bonnet",
+    "Flutter Mane",
+    "Slither Wing",
+    "Sandy Shocks",
+    "Roaring Moon"
+  ]
+  
 var cd = false;
 var totalrolls = localStorage.getItem("totalRolls") || 0;
 var totalshinys = localStorage.getItem("totalShinys") || 0;
