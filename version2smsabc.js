@@ -24,6 +24,17 @@ function code() {
     if (footer) {
         footer.parentNode.removeChild(footer);
     }
+    if (localStorage.getItem("currentRoll")) {
+         var stored = JSON.parse(localStorage.getItem("currentRoll"))
+         if (stored.isShiny) {
+            document.getElementById("name").style.color = "orange";
+            document.getElementById("pokeImage").src = stored.info.sprites.front_shiny;
+         } else {
+            document.getElementById("name").style.color = "black";
+            document.getElementById("pokeImage").src = stored.info.sprites.front_default;
+         }
+         document.getElementById("name").innerHTML = stored.name
+    }
     document.getElementById("gen").addEventListener("click", function () {
         console.log("clciked gen,")
         if (cd) {
