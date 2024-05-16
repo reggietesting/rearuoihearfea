@@ -92,6 +92,14 @@ function randomNum(num1, num2) {
     return Math.floor(Math.random() * numList.length + 1)
 }
 
+function generateGUID() {
+  return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+    (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+  );
+}
+
+console.log(generateGUID());
+
 function code() {
     console.log("JS LOADED!")
     if (localStorage.getItem("totalRolls")) {
@@ -167,6 +175,22 @@ function code() {
                 jsonList.info =json;
                 jsonList.name = name;
                 jsonList.isShiny = shinyChance == 1;
+
+                var inventory = localStorage.getItem("inventory") && JSON.parse(localStorage.getItem("inventory")) || JSON.parse("{}")
+                if (inventory[name]) {
+                    inventory[name].quantity += 1
+                    if (shinyChance == 1) {
+                        inventory[name].displayShiny = true;
+                    }
+                } else {
+                    inventory[name] = JSON.parse("{}")
+                    inventory[name].quantity = 1;
+                    inventory[name].info = json;
+                    if (shinyChance == 1) {
+                        inventory[name].displayShiny = true;
+                    }
+                }
+                localStorage.setItem("inventory",JSON.stringify(inventory));
                 localStorage.setItem("currentRoll",JSON.stringify(jsonList))
             } catch (e) {
                 console.log(e);
