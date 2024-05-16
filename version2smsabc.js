@@ -36,7 +36,10 @@ var hyphenList = [
     "Flutter-Mane",
     "Slither-Wing",
     "Sandy-Shocks",
-    "Roaring-Moon"
+    "Roaring-Moon",
+    "Mr-Mime",
+    "Mr-Rime",
+    "Mime-Jr"
 ]
 
 var oghyphenList = [
@@ -71,7 +74,10 @@ var oghyphenList = [
     "Flutter Mane",
     "Slither Wing",
     "Sandy Shocks",
-    "Roaring Moon"
+    "Roaring Moon",
+    "Mr. Mime",
+    "Mr. Rime",
+    "Mime Jr."
   ]
 
 var cd = false;
@@ -142,7 +148,6 @@ function code() {
                     for (var i = 0; i < hyphenList.length; i++) {
                         if (hyphenList[i].toLowerCase() == name.toLowerCase()) {
                             name = oghyphenList[i]
-                            console.log(hyphenList[i])
                             bypassHypenAfterDelete = true;
                             break
                         }
