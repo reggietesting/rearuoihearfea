@@ -1,5 +1,56 @@
 console.log("loading js.")
+var footer = document.getElementById("codeprojects_pagefooter")
+if (footer) {
+    footer.parentNode.removeChild(footer);
+}
 
+var hyphenList = [
+    "Ho-Oh",
+    "Porygon-Z",
+    "Jangmo-o",
+    "Hakamo-o",
+    "Kommo-o",
+    "Tapu-Koko",
+    "Tapu-Lele",
+    "Tapu-Bulu",
+    "Tapu-Fini",
+    "Type-Null", // shld be Type: Null
+    "Urshifu-Single-Strike", // Urshifu Single-Strike Style
+    "Urshifu-Rapid-Strike", // Urshifu Rapid-Strike Style
+    "Iron-Treads",
+    "Iron-Bundle",
+    "Iron-Hands",
+    "Iron-Jugulis",
+    "Iron-Moth",
+    "Iron-Thorns",
+    "Iron-Valiant",
+    "Walking-Wake",
+    "Iron-Leaves"
+]
+
+var oghyphenList = [
+    "Ho-Oh",
+    "Porygon-Z",
+    "Jangmo-o",
+    "Hakamo-o",
+    "Kommo-o",
+    "Tapu Koko",
+    "Tapu Lele",
+    "Tapu Bulu",
+    "Tapu Fini",
+    "Type: Null", // shld be Type: Null
+    "Urshifu Single-Strike Style", // Urshifu Single-Strike Style
+    "Urshifu Rapid-Strike Style", // Urshifu Rapid-Strike Style
+    "Iron Treads",
+    "Iron Bundle",
+    "Iron Hands",
+    "Iron Jugulis",
+    "Iron Moth",
+    "Iron Thorns",
+    "Iron Valiant",
+    "Walking Wake",
+    "Iron Leaves"
+]
 var cd = false;
 var totalrolls = localStorage.getItem("totalRolls") || 0;
 var totalshinys = localStorage.getItem("totalShinys") || 0;
@@ -63,7 +114,21 @@ function code() {
                     document.getElementById("pokeImage").src = json.sprites.front_default;
                 }
                 var name = json.name.substring(0, 1).toUpperCase() + json.name.substring(1, json.name.length);
-                name = name.replace("-"," ")
+                var bypassHypenAfterDelete = false
+                if (name.includes("-")) {
+                    for (var i = 0; i < hyphenList.length; i++) {
+                        if (hyphenList[i].toLowerCase() == name.toLowerCase()) {
+                            name = oghyphenList[i]
+                            bypassHypenAfterDelete = true;
+                            break
+                        }
+                    }
+                    if (!bypassHypenAfterDelete) {
+                        var hypInd = name.indexOf("-");
+                        name = name.substring(0,hypInd);
+                    }
+                }
+                //name = name.replace("-"," ")
                 document.getElementById("name").innerHTML = name;
                 document.getElementById("Rolls").innerHTML = "Rolls: "+Number(localStorage.getItem("totalRolls")).toLocaleString()
                 var sound = new Audio(json.cries.latest);
