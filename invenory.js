@@ -3,7 +3,7 @@ function code() {
   if (footer) {
     footer.parentNode.removeChild(footer);
   }
-  var inventory = localStorage.getItem("realinventory")
+  var inventory = localStorage.getItem("inventory")
   if (inventory) {
     var parsedInv = JSON.parse(inventory);
     var pokeStr = "";
