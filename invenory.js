@@ -7,8 +7,8 @@ function code() {
   if (inventory) {
     var parsedInv = JSON.parse(inventory);
     var pokeStr = "";
-    for (var i = 0; i < parsedInv.length; i++) {
-      pokeStr += parsedInv[i].name + ": Quantity: " + parsedInv[i].quantity.toLocaleString() + ": OwnsShiny: " + (parsedInv[i].displayShiny && "YES" || "NO") + "\n"
+    for (var obj in inventory) {
+        pokeStr += parsedInv[obj].name + ": Quantity: " + parsedInv[obj].quantity.toLocaleString() + ": OwnsShiny: " + (parsedInv[obj].displayShiny && "YES" || "NO") + "\n"
     }
     document.getElementById("pokText").innerHTML = pokeStr;
   }
