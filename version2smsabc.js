@@ -176,21 +176,35 @@ function code() {
                 jsonList.name = name;
                 jsonList.isShiny = shinyChance == 1;
 
-                var inventory = localStorage.getItem("inventory") && JSON.parse(localStorage.getItem("inventory")) || JSON.parse("{}")
-                if (inventory[name]) {
-                    inventory[name].quantity += 1
+                var inventory = localStorage.getItem("realinventory") && JSON.parse(localStorage.getItem("realinventory")) || JSON.parse("{}")
+                var foundMon = false;
+                var totalIterations = 0;
+                var monInd
+                if (localStorage.getItem("realinventory")) {
+                for (var i = 0; i < inventory.length; i++){
+                    if (inventory[i].name == name) {
+                        foundMon = true
+                        monInd = i
+                    }
+                    totalIterations += 1;
+                  }
+                }
+                // not done, finish at home
+                if (foundMon) {
+                    inventory[monInd].quantity = Number(inventory[monInd].quantity) + 1
                     if (shinyChance == 1) {
-                        inventory[name].displayShiny = true;
+                        inventory[monInd].displayShiny = true;
                     }
                 } else {
-                    inventory[name] = JSON.parse("{}")
-                    inventory[name].quantity = 1;
-                    inventory[name].info = json;
+                    inventory[totalIterations] = JSON.parse("{}")
+                    inventory[totalIterations].quantity = 1;
+                    inventory[totalIterations].info = json;
+                    inventory[totalIterations].name = name
                     if (shinyChance == 1) {
-                        inventory[name].displayShiny = true;
+                        inventory[totalIterations].displayShiny = true;
                     }
                 }
-                localStorage.setItem("inventory",JSON.stringify(inventory));
+                localStorage.setItem("realinventory",JSON.stringify(inventory));
                 localStorage.setItem("currentRoll",JSON.stringify(jsonList))
             } catch (e) {
                 console.log(e);
