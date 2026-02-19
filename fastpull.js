@@ -1,4 +1,5 @@
-console.log("loading js.")
+console.log("loading js.");
+
 var footer = document.getElementById("codeprojects_pagefooter")
 
 if (footer) {
@@ -6,6 +7,7 @@ if (footer) {
 }
 
 function code() {
+  console.log('ran code');
   document.getElementById('menchukov').addEventListener('click', function() {
     window.location.href = "https://www.merriam-webster.com/slang/rickroll";
   });
