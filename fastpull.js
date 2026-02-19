@@ -6,7 +6,9 @@ if (footer) {
 }
 
 function code() {
-  window.location.href = "https://www.merriam-webster.com/slang/rickroll";
+  document.getElementById('menchukov').addEventListener('click', function() {
+    window.location.href = "https://www.merriam-webster.com/slang/rickroll";
+  });
 }
 
 
